@@ -48,6 +48,7 @@
     </div>
     </div>
     <script src="./node_modules/vue/dist/vue.js"></script>
+    <script src="./node_modules/jquery/dist/jquery.js"></script>
 
     <script>
             var Main = {
@@ -106,7 +107,21 @@
             this.rolling = true;
             const { wheelDeg, prizeList } = this;
 //            const random = Math.floor(Math.random() * (prizeList.length ));
-            const random = Math.floor(1);
+            var numS = 0;
+            $.ajax({
+                //请求方式
+                type:'post',
+                contentType:'application/json,charset=usf-8',
+                url:'game/getcode',
+                success:function(data){
+                    numS = 1;
+                },
+                error:function (e) {
+                    
+                }
+
+            })
+            const random = Math.floor(numS);
             console.log(random);
             this.wheelDeg =
                 wheelDeg -
