@@ -67,7 +67,7 @@ public class GameServiceImpl implements GameService {
                 outObjectParams.setResult("-1");//表示用户已进行了抽奖
                 break;
             }
-//            p.setIsFlag("1");//标记已进行抽奖
+            p.setIsFlag("1");//标记已进行抽奖
 
             PrizeSetProperty ps = prizeSetPropertyList.get(i);//获取对应的获奖奖品
             if(i<prizeSetPropertyList.size()){

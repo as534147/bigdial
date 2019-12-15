@@ -200,8 +200,13 @@
 				success :function (result) {
 					var respCode = result.respCode;
 					var respDesc = result.respDesc;
+					var result = result.result;
 					if(respCode==0){
-						window.location.href = "/index";
+						if(result){
+							window.location.href = "/prizeShow";
+						}else {
+							window.location.href = "/index";
+						}
 					}else{
 
 					}

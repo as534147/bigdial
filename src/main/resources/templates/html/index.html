@@ -86,37 +86,37 @@
                     wheelDeg: 0,
                     prizeNumber: 8,
                     prizeListOrigin: [
-                        {
-                        icon: "../ssss.jpg",
-                        name: "$10000"
+                        {//1
+                        icon: "../img/ssss.jpg?",
+                        name: "一等奖"
                         },
-                        {
-                        icon: "../ssss.jpg",
-                        name: "Thank you!"
+                        {//2
+                        icon: "../img/ssss.jpg",
+                        name: "二等奖"
                         },
-                                {
-                        icon: "../ssss.jpg",
-                        name: "$500"
+                        {//3
+                        icon: "../img/ssss.jpg",
+                        name: "三等奖"
                         },
-                        {
-                        icon: "../ssss.jpg",
-                        name: "$100"
+                        {//4
+                        icon: "../img/ssss.jpg",
+                        name: "纪念奖"
                         },
-                                {
-                        icon: "../ssss.jpg",
-                        name: "Thank you!"
+                        {//5
+                        icon: "../img/ssss.jpg",
+                        name: "二等奖"
                         },
-                        {
-                        icon: "../ssss.jpg",
-                        name: "$50"
+                        {//6
+                        icon: "../img/ssss.jpg",
+                        name: "三等奖"
                         },
-                        {
-                        icon: "../ssss.jpg",
-                        name: "$10"
+                        {//7
+                        icon: "../img/ssss.jpg",
+                        name: "三等奖"
                         },
-                        {
-                        icon: "../ssss.jpg",
-                        name: "Thank you!"
+                        {//8
+                        icon: "../img/ssss.jpg",
+                        name: "纪念奖"
                         }
                     ]
                     };
@@ -135,7 +135,27 @@
                             this.rolling = true;
                             const { wheelDeg, prizeList } = this;
                             //            const random = Math.floor(Math.random() * (prizeList.length ));
-
+                            const nm = Math.random() * 100;
+                            if(numS==1){
+                                numS = 1;
+                            }
+                            if(numS==2){
+                                if(nm>50){
+                                    numS = 5;
+                                }
+                            }
+                            if(numS==3){
+                                if(nm>30){
+                                    numS = 6;
+                                }else if(nm>60){
+                                    numS = 7;
+                                }
+                            }
+                            if(numS==4){
+                                if(nm>50){
+                                    numS = 8;
+                                }
+                            }
                             const random = Math.floor(numS-1);
                             console.log(random);
                             this.wheelDeg =
