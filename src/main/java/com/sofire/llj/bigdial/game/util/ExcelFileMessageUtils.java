@@ -63,7 +63,7 @@ public class ExcelFileMessageUtils {
                                     prizeProperty.setMemOrigin(value);
                                     break;
                                 case 5:
-                                    prizeProperty.setLoginpassword(value);
+                                    prizeProperty.setLoginpassword(value.substring(0,value.indexOf(".")));
                                     break;
                                 default:
                                     break;
@@ -112,7 +112,7 @@ public class ExcelFileMessageUtils {
                             value = cell.toString();
                             switch (cIndex) {
                                 case 0:
-                                    prizeSetProperty.setPrizeCode(value);
+                                    prizeSetProperty.setPrizeCode(value.substring(0,value.indexOf(".")));
                                     break;
                                 case 1:
                                     prizeSetProperty.setPrizeName(value);

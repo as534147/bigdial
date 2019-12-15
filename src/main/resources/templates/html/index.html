@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="../css/index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    
+    <div id="app">
+    <span>Prize number: {{ prizeNumber }}</span>
+    <button type="button" @click="!rolling && prizeNumber < 8 && (prizeNumber++)" :disabled="rolling || prizeNumber === 8">Add</button>
+    <button type="button" @click="!rolling && prizeNumber > 2 && (prizeNumber--)" :disabled="rolling || prizeNumber === 2">Remove</button>
+    <div class="wheel-wrapper">
+        <div
+        class="wheel-pointer"
+        @click="onClickRotate"
+        >
+        Start
+        </div>
+        <div
+        class="wheel-bg"
+        :class="{freeze: freeze}"
+        :style="`transform: rotate(${wheelDeg}deg)`"
+        >
+        <div class="prize-list">
+            <div
+            class="prize-item-wrapper"
+            v-for="(item,index) in prizeList"
+            :key="index"
+            >
+            <div
+                class="prize-item"
+                :style="`transform: rotate(${(360/ prizeList.length) * index}deg)`"
+            >
+                <div class="prize-name">
+                {{ item.name }}
+                </div>
+                <div class="prize-icon">
+                <img :src="item.icon">
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script src="../js/jquery.js"></script>
+    <script src=""></script>
+
+    <script>
+        var numS = 0;
+
+        $(function(){
+            var params = {
+                "nameCode":"7010"
+            };
+            $.ajax({
+                //请求方式
+                type:'post',
+                data:JSON.stringify(params),
+                dataType:"JSON",
+                async:"false",
+                contentType:'application/json',
+                url:'game/getcode',
+                success:function(data){
+                    var respCode = data.respCode;
+                    if(respCode=="0"){
+                        numS =  data.result;
+                    }
+                },
+                error:function (e) {
+
+                }
+            });
+        });
+
+            var Main = {
+                data() {
+                    return {
+                    freeze: false,
+                    rolling: false,
+                    wheelDeg: 0,
+                    prizeNumber: 8,
+                    prizeListOrigin: [
+                        {
+                        icon: "../ssss.jpg",
+                        name: "$10000"
+                        },
+                        {
+                        icon: "../ssss.jpg",
+                        name: "Thank you!"
+                        },
+                                {
+                        icon: "../ssss.jpg",
+                        name: "$500"
+                        },
+                        {
+                        icon: "../ssss.jpg",
+                        name: "$100"
+                        },
+                                {
+                        icon: "../ssss.jpg",
+                        name: "Thank you!"
+                        },
+                        {
+                        icon: "../ssss.jpg",
+                        name: "$50"
+                        },
+                        {
+                        icon: "../ssss.jpg",
+                        name: "$10"
+                        },
+                        {
+                        icon: "../ssss.jpg",
+                        name: "Thank you!"
+                        }
+                    ]
+                    };
+                },
+                computed: {
+                    prizeList () {
+                    return this.prizeListOrigin.slice(0, this.prizeNumber)
+                    }
+                },
+                methods: {
+                    onClickRotate() {
+                        if(numS>0){
+                            if (this.rolling) {
+                                return;
+                            }
+                            this.rolling = true;
+                            const { wheelDeg, prizeList } = this;
+                            //            const random = Math.floor(Math.random() * (prizeList.length ));
+
+                            const random = Math.floor(numS-1);
+                            console.log(random);
+                            this.wheelDeg =
+                                wheelDeg -
+                                wheelDeg % 360 +
+                                6 * 360 +
+                                (360 - 360 / prizeList.length * random);
+                            setTimeout(() => {
+                                this.rolling = false;
+                                alert("Result：" + prizeList[random].name);
+                            }, 4500);
+                        }
+                    }
+                },
+                watch: {
+                    prizeNumber () {
+                    this.freeze = true
+                    this.wheelDeg = 0
+
+                    setTimeout(() => {
+                        this.freeze = false
+                    }, 0)
+                    }
+                }
+            };
+        var App = Vue.extend(Main);
+        new App().$mount("#app");
+    </script>
+</body>
+</html>

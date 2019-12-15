@@ -6,10 +6,7 @@ import com.sofire.llj.bigdial.common.prize.PrizeRandom;
 import com.sofire.llj.bigdial.common.prize.PrizeSetProperty;
 import com.sofire.llj.bigdial.game.service.GameService;
 import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
 
-import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -70,7 +67,7 @@ public class GameServiceImpl implements GameService {
                 outObjectParams.setResult("-1");//表示用户已进行了抽奖
                 break;
             }
-            p.setIsFlag("1");//标记已进行抽奖
+//            p.setIsFlag("1");//标记已进行抽奖
 
             PrizeSetProperty ps = prizeSetPropertyList.get(i);//获取对应的获奖奖品
             if(i<prizeSetPropertyList.size()){
