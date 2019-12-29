@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>讯方公司年会抽奖</title>
+		<link href="./source/css/demo.css" rel="stylesheet" media="all">
+		<!--[if IE]>
+			<style type="text/css">
+				li.remove_frame a {
+					padding-top: 5px;
+					background-position: 0px -3px;
+				}
+			</style>
+		<![endif]-->
+
+		<!-- <script src="./source/hm.js"></script> -->
+		<script type="text/javascript" src="./source/js/jquery.min.js"></script>
+		<script type="text/javascript" src="./source/js/jquery.qrcode.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				function fixHeight() {
+					var headerHeight = $("#switcher").height();
+					$("#iframe").attr("height", $(window).height() - 54 + "px");
+				}
+				$(window).resize(function() {
+					fixHeight();
+				}).resize();
+
+				$('.icon-monitor').addClass('active');
+
+				$(".icon-mobile-3").click(function() {
+					$("#by").css("overflow-y", "auto");
+					$('#iframe-wrap').removeClass().addClass('mobile-width-3');
+					$('.icon-tablet,.icon-mobile-1,.icon-monitor,.icon-mobile-2,.icon-mobile-3').removeClass('active');
+					$(this).addClass('active');
+					return false;
+				});
+
+				$(".icon-mobile-2").click(function() {
+					$("#by").css("overflow-y", "auto");
+					$('#iframe-wrap').removeClass().addClass('mobile-width-2');
+					$('.icon-tablet,.icon-mobile-1,.icon-monitor,.icon-mobile-2,.icon-mobile-3').removeClass('active');
+					$(this).addClass('active');
+					return false;
+				});
+
+				$(".icon-mobile-1").click(function() {
+					$("#by").css("overflow-y", "auto");
+					$('#iframe-wrap').removeClass().addClass('mobile-width');
+					$('.icon-tablet,.icon-mobile,.icon-monitor,.icon-mobile-2,.icon-mobile-3').removeClass('active');
+					$(this).addClass('active');
+					return false;
+				});
+
+				$(".icon-tablet").click(function() {
+					$("#by").css("overflow-y", "auto");
+					$('#iframe-wrap').removeClass().addClass('tablet-width');
+					$('.icon-tablet,.icon-mobile-1,.icon-monitor,.icon-mobile-2,.icon-mobile-3').removeClass('active');
+					$(this).addClass('active');
+					return false;
+				});
+
+				$(".icon-monitor").click(function() {
+					$("#by").css("overflow-y", "hidden");
+					$('#iframe-wrap').removeClass().addClass('full-width');
+					$('.icon-tablet,.icon-mobile-1,.icon-monitor,.icon-mobile-2,.icon-mobile-3').removeClass('active');
+					$(this).addClass('active');
+					return false;
+				});
+			});
+		</script>
+
+		<script type="text/javascript">
+			function Responsive($a) {
+				if ($a == true) $("#Device").css("opacity", "100");
+				if ($a == false) $("#Device").css("opacity", "0");
+				$('#iframe-wrap').removeClass().addClass('full-width');
+				$('.icon-tablet,.icon-mobile-1,.icon-monitor,.icon-mobile-2,.icon-mobile-3').removeClass('active');
+				$(this).addClass('active');
+				return false;
+			};
+		</script>
+
+		<!-- <script type="text/javascript" src="./source/protect.js"></script> -->
+
+		<style type="text/css">
+			html,
+			body,
+			#iframe-wrap,
+			#iframe {
+				height: 100%
+			}
+			#iframe-wrap {
+				top: 0;
+			}
+
+		</style>
+	</head>
+	<body id="by" style="overflow-y: hidden;">
+		<div id="iframe-wrap" class="full-width">
+			<iframe id="iframe" src="source/index" frameborder="0" width="100%" height="613px"
+					__idm_frm__="106"></iframe>
+		</div>
+
+		<script src="source/js/wheel.js"></script>
+	</body>
+</html>

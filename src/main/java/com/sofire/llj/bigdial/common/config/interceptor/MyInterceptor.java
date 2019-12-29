@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 public class MyInterceptor  implements HandlerInterceptor {
 
     /**
-     * 登录的过滤器
+     * 登录的拦截器
      *
      * @param request
      * @param response

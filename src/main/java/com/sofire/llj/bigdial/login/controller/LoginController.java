@@ -23,7 +23,7 @@ public class LoginController {
 
     @RequestMapping("/")
     public String toLogins(HttpServletRequest request) throws UnknownHostException {
-        return "html/login";
+        return "login";
     }
     /**
      * 登录
@@ -84,10 +84,20 @@ public class LoginController {
      * 跳转到转盘页面
      * @return
      */
-    @RequestMapping("/index")
+    @RequestMapping("/wheel")
+    public String wheel(){
+
+        return "./wheel";
+    }
+
+    /**
+     * 跳转到转盘页面
+     * @return
+     */
+    @RequestMapping("/source/index")
     public String index(){
 
-        return "html/index";
+        return "source/index.html";
     }
 
     /**
@@ -119,7 +129,12 @@ public class LoginController {
                 continue;
             }
             prizeSetProperty =prizeSetProperties.get(i);
+            String isflag = prizeProperty.getIsFlag();
+
             outObjectParams.setResult(prizeSetProperty);
+            if(!"1".equals(isflag)){
+                outObjectParams.setResult("-1");
+            }
         }
         outObjectParams.setRespCode("0");
         outObjectParams.setRespDesc("成功！");

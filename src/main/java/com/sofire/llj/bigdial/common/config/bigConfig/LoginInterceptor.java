@@ -20,8 +20,8 @@ public class LoginInterceptor {
              */
             @Override
             public void addViewControllers(ViewControllerRegistry registry) {
-                registry.addViewController("/").setViewName("html/login");
-                registry.addViewController("/login.html").setViewName("html/login");
+                registry.addViewController("/").setViewName("login");
+                registry.addViewController("/login.html").setViewName("login");
             }
 
             /**
@@ -34,7 +34,7 @@ public class LoginInterceptor {
                         .addPathPatterns("/**")
                         .excludePathPatterns("/", "/toLogin"
                                 //SpringBoot2+中要排除静态资源路径, 因访问时不会加/static，所以配置如下
-                                ,"/css/**", "/img/**","/image/**","/js/**","/common/**");
+                                ,"/source/css/**","/source/bak/**","/source/images/**","/source/image/**","/source/js/**", "/css/**","/img/**","/image/**","/js/**","/common/**");
             }
 
         };

@@ -31,12 +31,22 @@ public class GameCodeController {
         return outObjectParams;
     }
 
+    /**
+     * 初始化抽奖信息
+     * @param nameCode
+     * @return
+     */
     @ResponseBody
     @RequestMapping("/randomcode")
     public OutObjectParams randomCode(String nameCode){
         //创建出参对象
         OutObjectParams outObjectParams = gameService.releasePrizeRandom();
         return outObjectParams;
+    }
+
+    @RequestMapping("/prizeRecord")
+    public String toPrizeRecordHtml(){
+        return "source/prizeRecord";
     }
 
 }

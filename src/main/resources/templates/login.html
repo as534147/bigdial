@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>登录界面</title>
+	<link rel="stylesheet" type="text/css" href="./source/css/demo.css"/>
+
+	<style type="text/css">
+		*{box-sizing: border-box;}
+		html,body{
+			width: 100%;
+			height: 100%;
+			background: #fff;
+			overflow: hidden;
+		}
+		body{
+			background-image: url(./source/images/wheelBg.jpg);
+			background-size: 100%;
+			background-repeat: no-repeat;
+			padding-top:100%;
+		}
+		.bg{
+			display: block;
+			width: 100%;
+		}
+		.loginMsgBox{
+			padding: 0 10vw;
+		}
+		.userEle{
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: space-around;
+		}
+		.userEleEle{
+			flex-grow: 1;
+			white-space: normal;
+			word-break: break-all;
+			margin-bottom: 10vw;
+		}
+		.icoEle{
+			
+		}
+		.ico{
+			display: block;
+			height: 6vw;
+		}
+		.ipt{
+			border: none;
+			line-height: 1.6;
+			color: #555;
+		}
+		.iptEle{
+			/* border-bottom: 1px solid #80e3d9; */
+			border-bottom: 1px solid #ffa0a3;
+			flex-grow: 4;
+		}
+		.loginBtn{
+			height: 12vw;
+		}
+		.loginBtnA{
+			-webkit-tap-highlight-color: rgba(0,0,0,0);
+		}
+	</style>
+</head>
+<body>
+	<div class="loginMsgBox" id="app">
+		<div class="msgEle userEle">
+			<div class="userEleEle icoEle"><img src="./source/images/user.png" alt="" class="ico"></div>
+			<div class="userEleEle iptEle"><input type="text" id="nameUser" maxlength="12" class="ipt userIpt"></div>
+		</div>
+		<div class="msgEle userEle">
+			<div class="userEleEle icoEle"><img src="./source/images/psw.png" alt="" class="ico"></div>
+			<div class="userEleEle iptEle"><input type="password" id="namePassword" maxlength="12" class="ipt pswIpt"></div>
+		</div>
+		<div class="msgEle userEle" id="loginBtnId">
+			<div class="imgEle"><a class="loginBtnA" href="#" ><img src="./source/images/loginBtn.png" alt="" class="loginBtn"></a></div>
+		</div>
+		<div style="margin-left: 35%;">
+			<span id="remainMsg"></span>
+		</div>
+	</div>
+
+	<script src="js/jquery.js"></script>
+	<script src="source/js/login.js"></script>
+</body>
+</html>
