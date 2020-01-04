@@ -21,6 +21,11 @@ import java.util.Map;
 @Controller
 public class LoginController {
 
+    @RequestMapping("indexYearMain")
+    public String indexYearMain(){
+        return "indexYearMain";
+    }
+
     @RequestMapping("/")
     public String toLogins(HttpServletRequest request) throws UnknownHostException {
         return "login";

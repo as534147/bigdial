@@ -34,7 +34,7 @@ public class LoginInterceptor {
                         .addPathPatterns("/**")
                         .excludePathPatterns("/", "/toLogin"
                                 //SpringBoot2+中要排除静态资源路径, 因访问时不会加/static，所以配置如下
-                                ,"/source/css/**","/source/bak/**","/source/images/**","/source/image/**","/source/js/**", "/css/**","/img/**","/image/**","/js/**","/common/**");
+                                ,"/voice/**","/indexYearMain","/source/css/**","/source/bak/**","/source/images/**","/source/image/**","/source/js/**", "/css/**","/img/**","/image/**","/js/**","/common/**");
             }
 
         };

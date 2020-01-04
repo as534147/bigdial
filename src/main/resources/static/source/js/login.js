@@ -32,11 +32,11 @@ $(function(){
                 if(respCode==0){
                     if(result){
                         window.location.href = "/wheel";
-                    }else {
+                    }else{
                         window.location.href = "/wheel";
                     }
                 }else{
-
+                    $("#remainMsg").html('请重新输入！');
                 }
             },
             //请求失败，包含具体的错误信息

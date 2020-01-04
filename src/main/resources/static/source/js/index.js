@@ -58,7 +58,12 @@ $(function() {
             	$(".cover,.covers2").show();
             	// $('.cover_fuck,.cover_quit').css({"display": "block","animation": "action_translateY 2s linear", "animation-fill-mode":"forwards"});
                 // $(".cover_fuck").text("+"+parseInt(txt));
-                $(".covers2 .covers_font span").text(txt);
+                if(awards!=9){
+                    $(".covers2 .covers_font span").text(txt);
+                }else{
+                    $(".covers2 .covers_font").html('<span>非常感谢您的参与！</span>');
+                }
+
                 bRotate = !bRotate;
             }
         })
@@ -101,6 +106,36 @@ $(function() {
 					console.log(item);
 				}
 
+                var randomNum = Math.random()*100;
+                console.log("random:"+randomNum);
+				if(item==1){
+				    item = 2;
+				}else if(item==2){
+				    if(randomNum>50){
+				        item = 5;
+				    }else{
+				        item = 8;
+				    }
+				}else if(item==3){
+				    if(randomNum>66){
+				       item = 3;
+				    }else if(randomNum>33){
+				       item = 6;
+				    }else{
+				       item = 0;
+				    }
+				}else if(item==4){
+				    if(randomNum>66){
+				       item = 1;
+				    }else if(randomNum>33){
+				       item = 4;
+				    }else{
+				       item = 7;
+				    }
+				}else if(item==5){
+				    item = 9;
+				}
+
 				if(item==-1) {
 					console.log("covers3");
 					$(".cover,.covers3").show();
@@ -109,34 +144,34 @@ $(function() {
 					//后台获取中奖信息
 					switch (parseInt(item)) {
 						case 0:
-							rotateFn(0, 360, '20金币');
+							rotateFn(0, 360, '三等奖');
 							break;
 						case 1:
-							rotateFn(1, 36, '10金币');
+							rotateFn(1, 36, '纪念奖');
 							break;
 						case 2:
-							rotateFn(2, 72, '900金币');
+							rotateFn(2, 72, '一等奖');
 							break;
 						case 3:
-							rotateFn(3, 108, '500金币');
+							rotateFn(3, 108, '三等奖');
 							break;
 						case 4:
-							rotateFn(4, 144, '300金币');
+							rotateFn(4, 144, '纪念奖');
 							break;
 						case 5:
-							rotateFn(5, 180, '250金币');
+							rotateFn(5, 180, '二等奖');
 							break;
 						case 6:
-							rotateFn(6, 216, '200金币');
+							rotateFn(6, 216, '三等奖');
 							break;
 						case 7:
-							rotateFn(7, 252, '150金币');
+							rotateFn(7, 252, '纪念奖');
 							break;
 						case 8:
-							rotateFn(8, 288, '100金币');
+							rotateFn(8, 288, '二等奖');
 							break;
 						case 9:
-							rotateFn(9, 324, '50金币');
+							rotateFn(9, 324, '谢谢参与');
 							break;
 					}
 				}
